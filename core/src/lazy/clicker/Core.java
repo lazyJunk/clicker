@@ -4,6 +4,7 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import lazy.clicker.screen.*;
+import lazy.clicker.logic.*;
 
 public class Core extends Game
 {
@@ -11,6 +12,9 @@ public class Core extends Game
 	public void create()
 	{
 		Gdx.app.log("Core", "Game Initializing");
+		
+		Register.init();
+		
 		this.setScreen(new PlayScreen());
 	}
 }
