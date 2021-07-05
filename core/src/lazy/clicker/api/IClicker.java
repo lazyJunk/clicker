@@ -1,4 +1,4 @@
-package lazy.clicker.logic;
+package lazy.clicker.api;
 
 public interface IClicker
 {
