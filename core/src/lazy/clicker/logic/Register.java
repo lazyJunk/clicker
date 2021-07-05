@@ -1,53 +1,19 @@
 package lazy.clicker.logic;
 
 import java.util.*;
+import lazy.clicker.api.*;
+import lazy.clicker.implementation.*;
 
 public class Register
 {
 	private static List<IClicker> allClicker = new ArrayList<>();
 
+	private static final IClicker BASIC =  new Clicker(1, 0xffffff, "Basic");
+	
 	public static void init(){
-		allClicker.add(new IClicker(){
-
-				@Override
-				public String regName()
-				{
-					return "start";
-				}
-				
-				@Override
-				public int score()
-				{
-					return 1;
-				}
-
-				@Override
-				public int color()
-				{
-					return 0xffffffff;
-				}
-		});
-		
-		allClicker.add(new IClicker(){
-
-				@Override
-				public String regName()
-				{
-					return "better";
-				}
-
-				@Override
-				public int score()
-				{
-					return 2;
-				}
-
-				@Override
-				public int color()
-				{
-					return 0xffff00ff;
-				}
-			});
+		allClicker.add(BASIC);
+		allClicker.add(new Clicker(2, 0xff0000, "Double"));
+		allClicker.add(new Clicker(4, 0x00ff00, "Double x 2"));
 	}
 	
 	public static IClicker get(String regname){
@@ -56,6 +22,6 @@ public class Register
 				return clciker;
 			}
 		}
-		return null;
+		return BASIC;
 	}
 }

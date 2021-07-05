@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.glutils.*;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.*;
 import lazy.clicker.logic.*;
+import lazy.clicker.api.*;
 
 public class PlayScreen extends ScreenAdapter
 {
