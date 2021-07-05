@@ -15,6 +15,8 @@ public class Core extends Game
 		
 		Register.init();
 		
+		GameData.load();
+		
 		this.setScreen(new PlayScreen());
 	}
 }
