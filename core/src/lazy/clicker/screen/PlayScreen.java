@@ -1,4 +1,5 @@
 package lazy.clicker.screen;
+
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.glutils.*;
@@ -48,7 +49,7 @@ public class PlayScreen extends ScreenAdapter
 		this.generator = new FreeTypeFontGenerator(Gdx.files.internal("font/regular.ttf"));
 		FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 		parameter.size = 36;
-		parameter.color = Color.BLACK;
+		parameter.color = Core.currentScheme.textColor;
 		this.fontRenderer = this.generator.generateFont(parameter);
 	}
 
@@ -62,20 +63,19 @@ public class PlayScreen extends ScreenAdapter
 		this.clickSound = Gdx.audio.newSound(Gdx.files.internal("click.wav"));
 	
 		this.sound.setSize(2.5f, 2.5f);
-		this.sound.setPosition(cam.viewportWidth - 3, 1);
+		this.sound.setPosition(cam.viewportWidth - 3, .5f);
 	}
 
 	@Override
 	public void render(float delta)
 	{
-		Gdx.gl.glClearColor(1f, 1f, 0f, 1f);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		ScreenUtils.clear(Core.currentScheme.primaryColor);
 
 		this.cam.update();
 		this.system.update(delta);
 		
 		if(Gdx.input.justTouched()){
-			Rectangle area = new Rectangle(this.cam.viewportWidth - 3f, 1f, 2.5f, 2.5f);
+			Rectangle area = new Rectangle(this.cam.viewportWidth - 3f, .5f, 2.5f, 2.5f);
 			if(Utils.clickedArea(this.cam, area)){
 				GameData.clickSound = !GameData.clickSound;
 				GameData.save();
